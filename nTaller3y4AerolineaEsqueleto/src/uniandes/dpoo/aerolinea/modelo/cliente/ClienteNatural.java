@@ -8,11 +8,13 @@ public class ClienteNatural extends Cliente{
 		this.nombre=nombre;
 	}
 
-	public String getNATURAL() {
+	public String getTipoCliente() {
 		return NATURAL;
 	}
 
-	public String getNombre() {
+	public String getIdentificador() {
 		return nombre;
 	}
+	
+	
 }

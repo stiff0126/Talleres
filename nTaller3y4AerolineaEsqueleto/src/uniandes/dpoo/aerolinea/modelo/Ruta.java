@@ -5,10 +5,57 @@ package uniandes.dpoo.aerolinea.modelo;
  */
 public class Ruta
 {
-    // TODO completar
+  
+	private String horaSalida;
+	private String horaLlegada;
+	private String codigoRuta;
+	private Aeropuerto destino;
+	private Aeropuerto origen;
+	
+	public Ruta(String horaSalida, String horaLlegada, String codigoRuta,Aeropuerto destino,Aeropuerto origen) {
+		this.codigoRuta=codigoRuta;
+		this.destino=destino;
+		this.horaLlegada=horaLlegada;
+		this.horaSalida=horaSalida;
+		this.origen=origen;
+	}
 
+    public String getHoraSalida() {
+		return horaSalida;
+	}
 
-    /**
+	public String getHoraLlegada() {
+		return horaLlegada;
+	}
+
+	public String getCodigoRuta() {
+		return codigoRuta;
+	}
+
+	public Aeropuerto getDestino() {
+		return destino;
+	}
+
+	public Aeropuerto getOrigen() {
+		return origen;
+	}
+	
+	public int getDuracion() {
+		int duracionHoras=0;
+		int duracionMinutos=getMinutos(this.horaLlegada)-getMinutos(this.horaSalida);
+		
+		if(getHoras(horaLlegada)<getHoras(horaSalida)) {
+			duracionHoras=getHoras(this.horaLlegada)-getHoras(this.horaSalida)+24;
+			
+			
+		}else {
+			duracionHoras=getHoras(this.horaLlegada)-getHoras(this.horaSalida);
+		}
+		
+		return (duracionHoras*60) + Math.abs(duracionMinutos);
+	}
+
+	/**
      * Dada una cadena con una hora y minutos, retorna los minutos.
      * 
      * Por ejemplo, para la cadena '715' retorna 15.

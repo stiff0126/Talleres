@@ -34,9 +34,9 @@ public class Tiquete {
 	}
 	
 	public void marcarComoUsado() {
-		
+		this.usado=true;
 	}
 	public boolean esUsado() {
-		return false;
+		return usado;
 	}
 }
